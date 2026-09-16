@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hintgap"
+version = "0.1.0"
+description = "Flag MCP tool definitions that omit safety annotations (readOnlyHint/destructiveHint/idempotentHint/openWorldHint) so an agent can reason about a tool's blast radius before calling it. Static ast-based scan of Python MCP servers (FastMCP decorators + low-level types.Tool). Opinionated, low-FP MCP hygiene for CI."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Jay Tank", email = "tankjai24@gmail.com" }]
+requires-python = ">=3.8"
+dependencies = []
+keywords = [
+    "cli",
+    "mcp",
+    "model-context-protocol",
+    "llm",
+    "agents",
+    "agent-tooling",
+    "tool-annotations",
+    "static-analysis",
+    "ast",
+    "ci",
+    "devsecops",
+    "ai-safety",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+hintgap = "hintgap:main"
+
+[project.urls]
+Homepage = "https://github.com/jay-tank/hintgap"
+Repository = "https://github.com/jay-tank/hintgap"
+Issues = "https://github.com/jay-tank/hintgap/issues"
+
+[tool.setuptools]
+py-modules = ["hintgap"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
